@@ -1,0 +1,19 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@4
+      - uses: actions/setup-node@4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm install
+      - name: Ckeck Style
+        run: npm run eslint
