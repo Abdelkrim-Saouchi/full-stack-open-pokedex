@@ -35,16 +35,16 @@ const pokemonList = {
       base_stat: 55,
       effort: 0,
       stat: {
-        name: "attack",
-        url: "https://pokeapi.co/api/v2/stat/2/",
+        name: "hp",
+        url: "https://pokeapi.co/api/v2/stat/1/",
       },
     },
     {
       base_stat: 55,
       effort: 0,
       stat: {
-        name: "hp",
-        url: "https://pokeapi.co/api/v2/stat/1/",
+        name: "attack",
+        url: "https://pokeapi.co/api/v2/stat/2/",
       },
     },
   ],

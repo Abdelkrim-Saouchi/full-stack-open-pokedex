@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
-const PokemonPage = () => {
+const PokemonPage = ({ previous, next }) => {
   const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -55,6 +55,17 @@ const PokemonPage = () => {
           <li key={type.type.name}>{type.type.name}</li>
         ))}
       </ul>
+      <h3>Stats:</h3>
+      <ul data-testid="stats">
+        {pokemon.stats.map((stat) => (
+          <li key={stat.stat.name}>
+            {stat.stat.name}
+            {stat.base_stat}
+          </li>
+        ))}
+      </ul>
+      {previous && <Link to={"/pokemon/" + previous.name}>Previous</Link>}
+      {next && <Link to={"/pokemon/" + next.name}>Next</Link>}
       <Link to="/">Back to list</Link>
     </div>
   );

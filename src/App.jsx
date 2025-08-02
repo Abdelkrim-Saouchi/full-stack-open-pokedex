@@ -6,16 +6,17 @@ import PokemonPage from "./PokemonPage";
 const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
         const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon?limit=151",
+          "https://pokeapi.co/api/v2/pokemon/?limit=50",
         );
         setPokemonList(response.data.results);
       } catch (error) {
-        console.error("Error fetching Pokemon:", error);
+        setError(error);
       }
     };
     fetchPokemon();
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/pokemon/:name" element={<PokemonPage />} />
         </Routes>
       </div>
+      <div data-testid="error">{error && error.message}</div>
     </Router>
   );
 };
