@@ -31,3 +31,5 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 2
+      - name: Trigger deployment
+        run: curl ${{ secrets.RENDER_HOOK_URL }}
