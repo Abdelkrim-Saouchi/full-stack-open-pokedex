@@ -15,7 +15,7 @@ app.get("/version", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("Hello to my new app");
 });
 
 app.get("/health", (req, res) => {
