@@ -37,6 +37,6 @@ jobs:
       - name: Trigger deployment
         run: curl ${{ secrets.RENDER_HOOK_URL }}
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@v1.37.0
+        uses: anothrNick/github-tag-action@v1.73.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
