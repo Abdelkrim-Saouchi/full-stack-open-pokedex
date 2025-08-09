@@ -35,10 +35,11 @@ jobs:
           path: playwright-report/
           retention-days: 2
       - name: Trigger deployment
+        if: ${{ github.event_name == 'push' }}
         run: curl ${{ secrets.RENDER_HOOK_URL }}
       - name: Bump version and push tag
         if: github.ref == 'refs/heads/main'
-        uses: anothrNick/github-tag-action@v1.73.0
+        uses: anothrNick/github-tag-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
